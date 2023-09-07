@@ -1,0 +1,38 @@
+<div class="container py-5">
+  <div class="tea-images mb-5 col-md-12 w-100 wow animate__fadeInLeft">
+    <div>
+      <img src="../../../assets/images/chay-s-apelsinom-sayt-2%201.png" alt="Image 1" class="img-fluid">
+    </div>
+  </div>
+
+
+  <div ngbAccordion [closeOthers]="true">
+    <div ngbAccordionItem *ngFor="let panel of panels">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton
+                class="fw-bold py-4 rounded-4 border-0 bg-primary text-light mt-3">{{ panel.title }}</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            {{panel.description}}
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <ng-template class="modal" #popup let-modal>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Посмотрите наши чайные коллекции</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.close()"></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" [routerLink]="'/products'" (click)="modal.close()">Смотреть</button>
+          </div>
+        </div>
+    </ng-template>
+
+</div>
+

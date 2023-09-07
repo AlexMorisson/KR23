@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.slick-prev {
+  left: 15px;
+  z-index: 10;
+}
+
+.slick-next {
+  right: 15px;
+  z-index: 10;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  opacity: 1;
+  font-size: 41px;
+  background-image: url("assets/images/стрелка.png");
+  background-repeat: no-repeat;
+  color: transparent;
+}
+
+.slick-next {
+  transform: rotate(180deg);
+}
+
+.ui-icon {
+  background-image: url("assets/images/next 3.png") !important;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 50%;
+  right: 28px;
+}
+
+.ui-accordion {
+  position: relative;
+}
+
+.ui-state-active .ui-icon {
+  transform: rotate(180deg);
+}
+
+/*.thank {*/
+/*  display: flex;*/
+/*}*/
+
+.card-text {
+  height: 110px;
+}
+
+.card-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 415px) {
+  .ui-icon {
+    display: none;
+  }
+}
+
+
+
+

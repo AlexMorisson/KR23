@@ -1,0 +1,55 @@
+<div class="container py-5">
+
+  <div class="order w-50 m-auto" *ngIf="!isNotError">
+    <h2 class="mb-5 fw-bold text-center">Сделать заказ</h2>
+    <form class="row g-3" [formGroup]="orderForm">
+      <div class="col-md-4">
+        <label for="productName" class="form-label">Товар</label>
+        <input type="text" class="form-control" id="productName" formControlName="productName">
+      </div>
+      <div class="col-md-4">
+        <label for="comment" class="form-label">Комментарий к заказу</label>
+        <input type="text" class="form-control" id="comment" formControlName="comment">
+      </div>
+      <div class="col-md-4">
+        <label for="inputName" class="form-label">Имя</label>
+        <input type="text" class="form-control" id="inputName" formControlName="name"
+               [class]="{'border-danger': orderForm.get('name')?.invalid && (orderForm.get('name')?.touched || orderForm.get('name')?.dirty)}">
+      </div>
+      <div class="col-md-4">
+        <label for="inputLastName" class="form-label">Фамилия</label>
+        <input type="text" class="form-control" id="inputLastName" formControlName="lastName"
+               [class]="{'border-danger': orderForm.get('lastName')?.invalid && (orderForm.get('lastName')?.touched || orderForm.get('lastName')?.dirty)}">
+      </div>
+      <div class="col-md-4">
+        <label for="inputNumber" class="form-label">Телефон</label>
+        <input type="text" class="form-control" id="inputNumber" formControlName="phone"
+               [class]="{'border-danger': orderForm.get('phone')?.invalid && (orderForm.get('phone')?.touched || orderForm.get('phone')?.dirty)}">
+      </div>
+      <div class="col-md-6">
+        <label for="inputCountry" class="form-label">Страна</label>
+        <input type="text" class="form-control" id="inputCountry" formControlName="country">
+      </div>
+      <div class="col-md-6">
+        <label for="inputIndex" class="form-label">Индекс</label>
+        <input type="text" maxlength="6" class="form-control" id="inputIndex" formControlName="zip">
+      </div>
+      <div class="col-md-12">
+        <label for="inputAdress" class="form-label">Адрес</label>
+        <input type="text" class="form-control" id="inputAdress" formControlName="address"
+               [class]="{'border-danger': orderForm.get('address')?.invalid && (orderForm.get('address')?.touched || orderForm.get('address')?.dirty)}">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary hvr-round-corners" id="btn" (click)="createOrder()" [disabled]="isDisabled">Отправить</button>
+        <div class="order-error" *ngIf="isError">Произошла ошибка. Попробуйте еще раз.</div>
+      </div>
+    </form>
+  </div>
+
+  <div class="thank row" *ngIf="isNotError">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light text-center">Спасибо за заказ.</h1>
+      <p class="lead text-muted text-center">Мы свяжемся с вами в ближайшее время!</p>
+    </div>
+  </div>
+</div>
